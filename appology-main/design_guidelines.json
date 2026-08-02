@@ -1,0 +1,119 @@
+{
+  "theme": "dark",
+  "typography": {
+    "heading_font": "Cormorant Garamond",
+    "script_font": "Parisienne",
+    "body_font": "Inter",
+    "hierarchy": {
+      "h1": "text-5xl sm:text-7xl lg:text-[10vw] font-light tracking-tighter leading-none",
+      "h2": "text-4xl sm:text-5xl lg:text-7xl font-light tracking-tight",
+      "h3": "text-2xl sm:text-3xl lg:text-4xl font-normal",
+      "script_large": "font-script text-5xl sm:text-6xl lg:text-8xl leading-relaxed",
+      "script_medium": "font-script text-3xl sm:text-4xl lg:text-5xl leading-relaxed",
+      "body": "text-base lg:text-lg font-light tracking-wide leading-relaxed",
+      "overline": "text-xs uppercase tracking-[0.3em] font-medium"
+    }
+  },
+  "colors": {
+    "background": {
+      "void": "#030408",
+      "deep_indigo": "#060A14",
+      "ink_blue": "#0A1128",
+      "soft_paper": "#F4EFEA"
+    },
+    "text": {
+      "primary": "#F8F5EE",
+      "secondary": "#A3A8B7",
+      "pale_gold": "#F2E8CF",
+      "ink_black": "#1A1A1A",
+      "ink_light": "#333333"
+    },
+    "accents": {
+      "warm_gold": "#D4AF37",
+      "lantern_glow": "#FFB84D",
+      "lantern_core": "#FFEAA7"
+    }
+  },
+  "visual_enhancers": {
+    "gradients": {
+      "lantern_aura": "radial-gradient(circle at center, rgba(255, 184, 77, 0.4) 0%, rgba(6, 10, 20, 0) 70%)",
+      "sky_fade": "linear-gradient(to bottom, #030408 0%, #060A14 50%, #0A1128 100%)",
+      "paper_texture": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+    },
+    "shadows": {
+      "lantern": "0 0 40px 10px rgba(255, 184, 77, 0.3), 0 0 100px 20px rgba(255, 184, 77, 0.1)",
+      "soft_glow": "0 0 20px rgba(212, 175, 55, 0.2)"
+    },
+    "noise": "All dark sections must have a subtle noise overlay (opacity-20 pointer-events-none fixed inset-0 z-50 mix-blend-overlay) to simulate a cinematic, grainy night sky."
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Use py-32 to py-64 for section padding. The design should feel empty, quiet, and vast, like the night sky.",
+    "alignment": "Optical alignment. Center the hero text and finale, but use staggered, asymmetric left/right alignments for the manifesto chapters to create rhythm.",
+    "containers": "Use max-w-7xl mx-auto px-6 or px-12. Avoid harsh borders or boxes; let content float in the dark."
+  },
+  "motion": {
+    "rules": [
+      "Use @studio-freight/react-lenis for smooth scrolling (momentum).",
+      "Hero Reveal: Line-by-line staggered reveal using Framer Motion (initial y: 100%, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)').",
+      "Parallax Lanterns: Use Framer Motion useScroll and useTransform to make lanterns float upward at different speeds as the user scrolls.",
+      "Marquee: Use framer-motion or react-fast-marquee for a very slow, continuous editorial marquee.",
+      "Scroll Reveal: Every manifesto chapter fades in and drifts up slightly (y: 50 -> 0, opacity 0 -> 1, duration: 1.2, ease: 'easeOut') when scrolling into view."
+    ]
+  },
+  "accessibility": {
+    "contrast": "Ensure pale gold and white text over the dark sky background meets minimum 4.5:1 ratio.",
+    "reduced_motion": "Respect prefers-reduced-motion for the parallax and canvas stars.",
+    "testing": "Add data-testid attributes to all interactive elements, like the final forgiveness button."
+  },
+  "media": {
+    "3d_libraries": [
+      "No heavy 3D library required. Use a lightweight HTML5 Canvas script or tsparticles for the starry background.",
+      "Use Framer Motion for the floating image/SVG lanterns."
+    ],
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/10935233/pexels-photo-10935233.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "background",
+        "description": "Floating paper lanterns in the night sky. Can be used as a parallax background layer."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxzdGFycnklMjBuaWdodCUyMHNreSUyMGRhcmslMjBibHVlfGVufDB8fHx8MTc4NTU5MDQ1M3ww&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Starry night sky texture for blending over the void background."
+      }
+    ],
+    "icons": "lucide-react (Use very sparingly. Maybe a subtle ArrowDown for the scroll indicator, or a Star icon)."
+  },
+  "sections": [
+    {
+      "name": "Hero",
+      "details": "Dark void background with starry canvas and layered parallax lanterns. Center text: Massive 'I'm Sorry' masked line reveal. Below it, in Parisienne script: 'To someone special'. Absolute bottom center: glowing scroll indicator."
+    },
+    {
+      "name": "Editorial Marquee",
+      "details": "Slow-moving pale gold text. 'FORGIVE ME • A THOUSAND APOLOGIES • A THOUSAND STARS • ' repeated."
+    },
+    {
+      "name": "Manifesto Chapters",
+      "details": "Numbered sections (01, 02, 03). Alternate left and right alignment. Huge gold numbers. Short, heartfelt paragraphs. Elements fade in on scroll. Background remains deep indigo."
+    },
+    {
+      "name": "The Letter",
+      "details": "Background hard-transitions (or cross-fades via framer-motion) to 'soft_paper' (#F4EFEA) with noise texture. Ink black text (#1A1A1A). The text is written entirely in the 'Parisienne' font, feeling like a heartfelt, raw apology letter."
+    },
+    {
+      "name": "Forgiveness Finale",
+      "details": "Transition back to the dark starry sky. A single, glowing button or interactive lantern in the center. 'Will you forgive me?' Upon clicking, a beautiful, gentle animation occurs (e.g., text changes to 'Thank You', lanterns flood the screen, or a soft golden glow overtakes the page)."
+    }
+  ],
+  "components_to_build": [
+    "StarryBackground (Canvas or tsparticles based)",
+    "ParallaxLanterns (Framer motion useScroll)",
+    "KineticTextReveal (Masked line-by-line reveal)",
+    "ScrollMarquee (Continuous text scroll)",
+    "SmoothScrollProvider (Lenis wrapper)",
+    "ForgivenessButton (Interactive glowing CTA)"
+  ],
+  "instructions_to_main_agent": "Ensure you install framer-motion, lucide-react, and @studio-freight/react-lenis (or lenis). Include the Google Fonts for Cormorant Garamond (weights 300, 400, 500) and Parisienne in the index.html. DO NOT use generic fonts. Build a highly emotional, beautifully animated experience. Prioritize the staggering and smoothness of Framer Motion animations. The background transition from Dark Sky to Soft Paper must feel deliberate and clean.",
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "Do not apply 'transition: all' globally. Use specific transitions. Ensure micro-interactions on the final button. Keep z-index hierarchy strict (stars in back, lanterns mid, text front). No emojis. Use data-testid for the final button."
+}

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Parisienne&family=Manrope:wght@200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --void: #030408;
+    --deep-indigo: #060a14;
+    --ink-blue: #0a1128;
+    --soft-paper: #f4efea;
+    --starlight: #f8f5ee;
+    --moon-gray: #a3a8b7;
+    --pale-gold: #f2e8cf;
+    --warm-gold: #d4af37;
+    --lantern-glow: #ffb84d;
+    --lantern-core: #ffeaa7;
+    --background: 240 33% 2%;
+    --foreground: 45 40% 95%;
+    --card: 240 33% 4%;
+    --card-foreground: 45 40% 95%;
+    --popover: 240 33% 4%;
+    --popover-foreground: 45 40% 95%;
+    --primary: 45 65% 52%;
+    --primary-foreground: 240 33% 4%;
+    --secondary: 225 40% 10%;
+    --secondary-foreground: 45 40% 95%;
+    --muted: 225 30% 12%;
+    --muted-foreground: 226 15% 65%;
+    --accent: 40 90% 60%;
+    --accent-foreground: 240 33% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 40% 95%;
+    --border: 225 30% 16%;
+    --input: 225 30% 16%;
+    --ring: 45 65% 52%;
+    --radius: 0.5rem;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+body {
+    margin: 0;
+    background-color: var(--void);
+    color: var(--starlight);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #fff8e7;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.45);
+}
+
+.font-display {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.font-script {
+    font-family: 'Parisienne', cursive;
+}
+
+/* ---------- grain overlay ---------- */
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* ---------- sky ---------- */
+.sky-gradient {
+    background: linear-gradient(to bottom, #030408 0%, #060a14 45%, #0a1128 100%);
+}
+
+/* ---------- lantern glow ---------- */
+.lantern-shadow {
+    filter: drop-shadow(0 0 18px rgba(255, 184, 77, 0.55)) drop-shadow(0 0 60px rgba(255, 184, 77, 0.25));
+}
+
+.lantern-aura {
+    background: radial-gradient(circle at center, rgba(255, 184, 77, 0.35) 0%, rgba(255, 184, 77, 0.08) 45%, rgba(6, 10, 20, 0) 70%);
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-drift 70s linear infinite;
+}
+
+/* ---------- paper ---------- */
+.paper-texture {
+    background-color: var(--soft-paper);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.paper-edge {
+    box-shadow:
+        0 1px 0 rgba(26, 26, 26, 0.06),
+        0 30px 80px -20px rgba(3, 4, 8, 0.55),
+        0 0 0 1px rgba(212, 175, 55, 0.12);
+}
+
+/* ---------- gold text glow ---------- */
+.gold-glow {
+    text-shadow: 0 0 24px rgba(212, 175, 55, 0.35), 0 0 80px rgba(212, 175, 55, 0.15);
+}
+
+/* ---------- forgive button ---------- */
+.forgive-btn {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+    box-shadow: 0 0 30px rgba(255, 184, 77, 0.25), inset 0 0 20px rgba(255, 184, 77, 0.08);
+}
+.forgive-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 60px rgba(255, 184, 77, 0.5), inset 0 0 30px rgba(255, 184, 77, 0.15);
+}
+.forgive-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+.pulse-ring {
+    animation: pulse-ring 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* ---------- scroll hint ---------- */
+@keyframes scroll-hint {
+    0%, 100% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(10px); opacity: 0.4; }
+}
+.scroll-hint {
+    animation: scroll-hint 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track, .scroll-hint, .pulse-ring {
+        animation: none;
+    }
+}
